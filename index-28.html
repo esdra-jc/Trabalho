@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>BobinaTrack</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header><h1>BobinaTrack</h1><span id="total"></span></header>
+<nav id="tabs">
+  <button data-tab="busca" class="on">Buscar</button>
+  <button data-tab="cadastro">Cadastrar</button>
+  <button data-tab="lista">Bobinas</button>
+  <button data-tab="hist">Histórico</button>
+</nav>
+<main>
+<section id="busca">
+  <label for="q">Número, endereço ou tipo + número</label>
+  <input id="q" type="search" placeholder='Ex.: P90807 · 342B · R P90807' autocomplete="off" autocapitalize="characters" spellcheck="false">
+  <h2>Bobinas encontradas ou semelhantes</h2>
+  <div id="legenda"><span class="b exato">Exata</span><span class="b parcial">Parcial</span><span class="b erro">Possível erro de digitação</span></div>
+  <div id="res"></div>
+  <div id="sel" hidden></div>
+</section>
+
+<section id="cadastro" hidden>
+  <h2>Cadastrar bobina</h2>
+  <label>Tipo<input id="c-tipo" placeholder="R" maxlength="10"></label>
+  <label>Número da bobina<input id="c-num" placeholder="P908070" maxlength="30"></label>
+  <label>Endereço<input id="c-end" placeholder="342B" maxlength="20"></label>
+  <button id="c-salvar" class="pri">Salvar bobina</button>
+</section>
+
+<section id="lista" hidden>
+  <h2>Bobinas cadastradas</h2>
+  <div class="row">
+    <button id="exp">Exportar JSON</button>
+    <label class="btn">Importar JSON<input id="imp" type="file" accept=".json" hidden></label>
+    <button id="gerar">Gerar 5.000 de teste</button>
+    <button id="limpar-teste">Remover testes</button>
+  </div>
+  <div id="tabela"></div>
+</section>
+
+<section id="hist" hidden>
+  <h2>Histórico</h2>
+  <div id="hlist"></div>
+</section>
+</main>
+<div id="toast" hidden></div>
+<script src="script.js"></script>
+</body>
+</html>
